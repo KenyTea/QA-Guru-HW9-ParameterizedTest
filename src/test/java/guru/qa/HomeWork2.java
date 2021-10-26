@@ -44,6 +44,8 @@ public class HomeWork2 {
 //        $("#react-datepicker__month-select").selectOption(5);
 //        $("#react-datepicker__year-select").selectOption(1982);
 //        $("#react-datepicker__day react-datepicker__day--015").click();
+       // сначала кликнул на само поле, потом нашел селектор на ввод месяца, через selectOptionByValue передал туда велью месяца, потом нашел селектор на ввод года, через selectOptionByValue передал велью года
+        //ну а день ввел так: $$(".react-datepicker__day").find(text("25")).click();
 
         // Заполняем поле Subjects
         //$("#subjectsContainer").click();
@@ -54,7 +56,7 @@ public class HomeWork2 {
 
         // Загрузка картинки
         $("#uploadPicture").uploadFile(new File("D:\\QA guru\\p1.PNG"));
-        $("#uploadPicture").uploadFile(new File("C:\\IdeaProjects\\qa_guru9_hw2\\p1.PNG"));
+        //$("#uploadPicture").uploadFile(new File("C:\\IdeaProjects\\qa_guru9_hw2\\p1.PNG"));
 
         // Заполнение Current Address
         $("#currentAddress").setValue("sssss");
