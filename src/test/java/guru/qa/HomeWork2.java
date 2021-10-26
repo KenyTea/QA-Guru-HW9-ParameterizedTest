@@ -2,6 +2,7 @@ package guru.qa;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -15,10 +16,14 @@ public class HomeWork2 {
 //    @Rule
 //    public  TestRule report = new TestReporter();
 
+    @BeforeEach
+    void config() {
+        Configuration.startMaximized = true;
+    }
+
     @Test
     void firstTest() {
 
-        Configuration.startMaximized = true;
         // Открываем браузер
         open("https://demoqa.com/automation-practice-form");
 
