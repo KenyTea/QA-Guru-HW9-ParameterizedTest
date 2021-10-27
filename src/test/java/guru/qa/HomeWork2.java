@@ -2,7 +2,7 @@ package guru.qa;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -16,8 +16,8 @@ public class HomeWork2 {
 //    @Rule
 //    public  TestRule report = new TestReporter();
 
-    @BeforeEach
-    void config() {
+    @BeforeAll
+    static void config() {
         Configuration.startMaximized = true;
     }
 
@@ -57,7 +57,7 @@ public class HomeWork2 {
         $(byText("Sports")).click();
 
         // Загрузка картинки
-        $("#uploadPicture").uploadFile(new File("src\\test\\p1.PNG"));
+        $("#uploadPicture").uploadFile(new File("resources\\p1.PNG"));
 
         // Заполнение Current Address
         $("#currentAddress").scrollTo();
