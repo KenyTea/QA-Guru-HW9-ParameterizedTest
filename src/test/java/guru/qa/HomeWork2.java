@@ -19,6 +19,7 @@ public class HomeWork2 {
     @BeforeAll
     static void config() {
         Configuration.startMaximized = true;
+        //Configuration.headless = true; не открывает страницу браузера
     }
 
     @Test
