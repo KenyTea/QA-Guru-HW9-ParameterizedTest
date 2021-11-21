@@ -1,7 +1,6 @@
 package guru.qa;
 
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
 
 /*
 Написать свои параметризованные тесты,
@@ -22,23 +21,26 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class HW9_ParameterizedTest {
 
-    String URL = "https://github.com/qa-guru";
-    SelenideElement reposFilter = $("#your-repos-filter");
-    ElementsCollection repositorySearchResult = $$("a");
-    SelenideElement checkingTextOnPage = $("a.Link--primary.markdown-title");
-    SelenideElement checkingTitle = $("strong.mr-2.flex-self-stretch");
-    String repoName = "qa_guru_9_8_files";
-    String checkingText = "JUnit 5 examples";
+    /*
+    Взять любое предыдущее ДЗ -> создать branch -> сделать три изменения тремя коммитами,
+    сделать скрин git log, после чего обьединить три коммита в один общий (rebase -i ).
+    Сделать пулл реквест на бранче.
 
-    //@Disabled
+    Разбиться на пары - сделать пулл реквест в чужой репо,
+    с какими-нибудь изменениями в коде. Провести CR - написать комментарий, апрувнуть изменения.
+     */
+
+    PageObject pageObject = new PageObject();
+
+    @Disabled
     @DisplayName("Поиск в github репозитория qa_guru_9_8_files")
     @Tag("blocker")
     @Test
     void repositorySearchTest() {
-        open(URL);
-        reposFilter.scrollTo().setValue(repoName);
-        repositorySearchResult.find(text(repoName)).click();
-        checkingTextOnPage.shouldHave(text(checkingText));
+        open(pageObject.URL);
+        pageObject.reposFilter.scrollTo().setValue(pageObject.repoName);
+        pageObject.repositorySearchResult.find(text(pageObject.repoName)).click();
+        pageObject.checkingTextOnPage.shouldHave(text(pageObject.checkingText));
     }
 
     @CsvSource(value = {
@@ -50,10 +52,10 @@ public class HW9_ParameterizedTest {
     @Tag("blocker")
     @ParameterizedTest(name = "Поиск в github репозитория {0} и проверка отображения текста {1}")
     void selenideSearchTest(String repoName, String checkingText) {
-        open(URL);
-        reposFilter.scrollTo().setValue(repoName);
-        repositorySearchResult.find(text(repoName)).click();
-        checkingTextOnPage.shouldHave(text(checkingText));
+        open(pageObject.URL);
+        pageObject.reposFilter.scrollTo().setValue(repoName);
+        pageObject.repositorySearchResult.find(text(repoName)).click();
+        pageObject.checkingTextOnPage.shouldHave(text(checkingText));
     }
 
     @ValueSource(strings = {"qa_guru_9_8_files", "qa_guru_9_2_java"})
@@ -61,9 +63,9 @@ public class HW9_ParameterizedTest {
     @Tag("blocker")
     @ParameterizedTest(name = "Поиск в github репозитория {0}")
     void selenideSearchTest(String repoName) {
-        open(URL);
-        reposFilter.scrollTo().setValue(repoName);
-        repositorySearchResult.find(text(repoName)).click();
-        checkingTitle.shouldHave(text(repoName));
+        open(pageObject.URL);
+        pageObject.reposFilter.scrollTo().setValue(repoName);
+        pageObject.repositorySearchResult.find(text(repoName)).click();
+        pageObject.checkingTitle.shouldHave(text(repoName));
     }
 }
