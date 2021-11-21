@@ -38,7 +38,7 @@ public class HW9_ParameterizedTest {
     @Test
     void repositorySearchTest() {
         open(pageObject.URL); // Открываем браузер
-        pageObject.reposFilter.scrollTo().setValue(pageObject.repoName);
+        pageObject.reposFilter.scrollTo().setValue(pageObject.repoName); // Скролим до поисковой строки и вбиваем название репозитория
         pageObject.repositorySearchResult.find(text(pageObject.repoName)).click();
         pageObject.checkingTextOnPage.shouldHave(text(pageObject.checkingText));
     }
