@@ -1,5 +1,6 @@
 package guru.qa;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -20,9 +21,18 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class HW9_ParameterizedTest {
 
+    /*
+    Взять любое предыдущее ДЗ -> создать branch -> сделать три изменения тремя коммитами,
+    сделать скрин git log, после чего обьединить три коммита в один общий (rebase -i ).
+    Сделать пулл реквест на бранче.
+
+    Разбиться на пары - сделать пулл реквест в чужой репо,
+    с какими-нибудь изменениями в коде. Провести CR - написать комментарий, апрувнуть изменения.
+     */
+
     PageObject pageObject = new PageObject();
 
-    //@Disabled
+    @Disabled
     @DisplayName("Поиск в github репозитория qa_guru_9_8_files")
     @Tag("blocker")
     @Test
