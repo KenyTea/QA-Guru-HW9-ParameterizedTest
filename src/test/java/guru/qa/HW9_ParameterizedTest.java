@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.*;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
+import static guru.qa.PageObject.URL;
 
 /*
 Написать свои параметризованные тесты,
@@ -34,7 +35,7 @@ public class HW9_ParameterizedTest {
     @Tag("blocker")
     @Test
     void repositorySearchTest() {
-        open(pageObject.URL);
+        open(URL);
         pageObject.reposFilter.scrollTo().setValue(pageObject.repoName);
         pageObject.repositorySearchResult.find(text(pageObject.repoName)).click();
         pageObject.checkingTextOnPage.shouldHave(text(pageObject.checkingText));
@@ -49,7 +50,7 @@ public class HW9_ParameterizedTest {
     @Tag("blocker")
     @ParameterizedTest(name = "Поиск в github репозитория {0} и проверка отображения текста {1}")
     void selenideSearchTest(String repoName, String checkingText) {
-        open(pageObject.URL);
+        open(URL);
         pageObject.reposFilter.scrollTo().setValue(repoName);
         pageObject.repositorySearchResult.find(text(repoName)).click();
         pageObject.checkingTextOnPage.shouldHave(text(checkingText));
@@ -60,7 +61,7 @@ public class HW9_ParameterizedTest {
     @Tag("blocker")
     @ParameterizedTest(name = "Поиск в github репозитория {0}")
     void selenideSearchTest(String repoName) {
-        open(pageObject.URL);
+        open(URL);
         pageObject.reposFilter.scrollTo().setValue(repoName);
         pageObject.repositorySearchResult.find(text(repoName)).click();
         pageObject.checkingTitle.shouldHave(text(repoName));

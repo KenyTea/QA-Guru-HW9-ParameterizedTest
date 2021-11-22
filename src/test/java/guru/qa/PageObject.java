@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class PageObject {
-    String URL = "https://github.com/qa-guru";
+    static String URL = "https://github.com/qa-guru";
     SelenideElement reposFilter = $("#your-repos-filter");
     ElementsCollection repositorySearchResult = $$("a");
     SelenideElement checkingTextOnPage = $("a.Link--primary.markdown-title");
