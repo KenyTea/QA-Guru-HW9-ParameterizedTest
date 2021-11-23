@@ -1,12 +1,12 @@
 package guru.qa;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.*;
 
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 import static guru.qa.PageObject.URL;
 
 /*
